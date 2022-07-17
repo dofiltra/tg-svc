@@ -41,7 +41,8 @@ class TgSvc {
       return {
         result: await this._bot.telegram.sendMessage(chatId, text, {
           parse_mode: 'HTML',
-          ...extra
+          ...extra,
+          disable_notification: extra?.disable_notification !== false
         })
       }
     } catch (error: any) {
